@@ -35,6 +35,9 @@ For example:
 * hashed_password - Set this option to **1** to get passwords hashed and not in plain text (default: 0)
 * hash_function - The hash-function which will be used when hashed_password is set to **1**. Can be **md5** or **sha1** (deafault: md5)
 
+### Examples
+You can find some examples of data which these generators will produce under **FakeDataGenerator/examples**
+
 
 
 ## How to use the PhishingSiteFlooder
@@ -52,7 +55,17 @@ The flooder for phishing sites is located in **PhishingSiteFlooder** folder.
 ### Set Form-Fields 
 You can set the fields of the data which will be send in the post_data.json file which is located in **PhishingSiteFlooder/config**
 
-Default:
+It has the format:
+```
+{
+	"FORM_INPUT_NAME": "VALUE"
+}
+```
+Placeholder: 
+* {email} - will be replaced with the email of the next user credentials which will be send
+* {password} - will be replaced with the password of the next user credentials which will be send
+
+Default ```post_data.json```:
 ```
 {
 	"email": "{email}",
@@ -60,14 +73,4 @@ Default:
     "autologin": 1
 }
 ```
-It has the format:
-```
-{
-	"FORM_INPUT_NAME": "VALUE"
-}
-```
-
-
-Placeholder: 
-* {email} - will be replaced with the email of the next user credentials which will be send
-* {password} - will be replaced with the password of the next user credentials which will be send
+This would be an example for a HTML-Form with these three fields email, password and autologin.
