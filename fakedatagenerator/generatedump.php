@@ -1,8 +1,8 @@
 <?php 
-include('./inc/FakeGenerator.php');
+include(dirname(__FILE__).'/inc/FakeGenerator.php');
 
-define('GENERATORS_DIR', realpath('./generators').'/');
-define('DATA_DIR', realpath('./data').'/');
+define('GENERATORS_DIR', dirname(__FILE__).'/generators/');
+define('DATA_DIR', dirname(__FILE__).'/data/');
 
 $default = array(
 	'generator' => 'EmailGenerator',
