@@ -16,8 +16,12 @@ $default = array(
 $params = $default;
 for($i=1; $i < count($argv); $i++)
 {
-	preg_match('/--([^=]*)=([^\s]*)/i', $argv[$i], $matches);
-	$params[$matches[1]] = $matches[2];
+	preg_match('/--([^=]*)=(.*)/i', $argv[$i], $matches);
+
+	if( isset($matches[1]) && isset($matches[2]) )
+	{
+		$params[$matches[1]] = $matches[2];
+	}
 }
 
 // prepare request 
