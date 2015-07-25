@@ -4,7 +4,9 @@ class PasswordGenerator extends FakeGenerator
 {
 
 	private $params_default = array(
-		'min_password_length' => 6
+		'min_password_length' => 6,
+		'hashed_password' => 0,
+		'hash_function' => 'md5' // md5 or sha1
 	);
 
 	private $pattern = array(
@@ -59,7 +61,23 @@ class PasswordGenerator extends FakeGenerator
 		for($i=0; $i < $amount; $i++)
 		{
 			do {
-				$password = $this->getNext();		
+				$password = $this->getNext();	
+
+				if( (bool)$this->params['hashed_password'] )
+				{
+					// password should be hashed
+					switch($this->params['hash_function'])
+					{
+						case 'sha1':
+							$password = sha1($password);
+							break;
+
+						case 'md5':
+						default: 
+							$password = md5($password);
+							break;
+					}
+				}	
 			}while( in_array($password, $this->fake_data) && (bool)$params['unique'] );
 			
 			$this->fake_data[] = $password;

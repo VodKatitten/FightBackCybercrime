@@ -26,10 +26,14 @@ For example:
 
 **PasswordGenerator Specific Options**
 * min_password_length - The min length of each password (default: 6)
+* hashed_password - Set this option to **1** to get passwords hashed and not in plain text (default: 0)
+* hash_function - The hash-function which will be used when hashed_password is set to **1**. Can be **md5** or **sha1** (deafault: md5)
 
 **UserCredentialsGenerator Specific Options**
 * pattern - The pattern of each user credentials. Use {email} and {password} as placeholder. (default: {email}:{password})
 * min_password_length - The min length of each password (default: 6)
+* hashed_password - Set this option to **1** to get passwords hashed and not in plain text (default: 0)
+* hash_function - The hash-function which will be used when hashed_password is set to **1**. Can be **md5** or **sha1** (deafault: md5)
 
 
 
