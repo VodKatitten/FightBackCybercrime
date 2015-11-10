@@ -25,7 +25,7 @@ class EmailGenerator extends FakeGenerator
 		{
 			do {
 				$email = $this->getNext();		
-			}while( in_array($email, $this->fake_data) && (bool)$params['unique'] );
+			}while( (bool)$params['unique'] && in_array($email, $this->fake_data) );
 			
 			$this->fake_data[] = $email;
 		}
